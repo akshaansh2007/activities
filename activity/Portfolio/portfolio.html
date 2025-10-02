@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>College Portfolio — Akshaansh Rai</title>
+
+  <style>
+    :root {
+      --bg1: #f8f9fa;
+      --bg2: #e9ecef;
+      --card-bg: #ffffff;
+      --text-color: #212529;
+      --subtext: #495057;
+      --accent1: #0d6efd;
+      --accent2: #6610f2;
+      --radius: 12px;
+      --maxw: 1000px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      padding: 32px 24px;
+      font-size: 18px;
+      line-height: 1.7;
+      transition: all 0.3s ease;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--maxw);
+    }
+
+    header {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      color: var(--text-color);
+    }
+
+    p.sub {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 16px;
+    }
+
+    span.sub {
+      margin: 0;
+      color: var(--accent1);
+      font-size: 16px;
+    }
+
+    .dark-mode-toggle {
+      padding: 8px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: 1px solid var(--accent1);
+      background: var(--accent1);
+      color: #fff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .photo-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(0,0,0,0.1);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .meta {
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .meta p {
+      margin: 8px 0;
+      color: var(--subtext);
+      font-size: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .skills {
+      margin-top: 16px;
+    }
+
+    .skill {
+      margin-bottom: 12px;
+    }
+
+    .skill label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      color: var(--subtext);
+    }
+
+    .bar {
+      height: 14px;
+      background: rgba(0,0,0,0.05);
+      border-radius: 999px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+
+    .bar > i {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      border-radius: 999px;
+    }
+
+    .contact {
+      margin-top: 16px;
+      color: var(--subtext);
+      font-size: 16px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .desc {
+      flex: 1;
+    }
+
+    .desc h2 {
+      margin: 0 0 12px 0;
+      font-size: 24px;
+    }
+
+    .desc p {
+      margin-bottom: 16px;
+      font-size: 18px;
+      color: var(--subtext);
+      line-height: 1.8;
+    }
+
+    .section {
+      margin-top: 20px;
+    }
+
+    .section h3 {
+      margin: 0 0 12px 0;
+      font-size: 20px;
+    }
+
+    .project {
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.02);
+      margin-bottom: 12px;
+    }
+
+    .project h4 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 15px;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: rgba(13,110,253,0.15);
+      color: var(--accent1);
+      font-weight: 500;
+    }
+
+    footer {
+      margin-top: 24px;
+      font-size: 14px;
+      text-align: center;
+      color: var(--subtext);
+    }
+
+    body.dark-mode {
+      --bg1: #212529;
+      --bg2: #121212;
+      --card-bg: #1e1e1e;
+      --text-color: #f8f9fa;
+      --subtext: #ced4da;
+      --accent1: #0d6efd;
+      --accent2: #6610f2;
+    }
+
+    @media (max-width:880px){
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        width: 160px;
+        height: 160px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        flex-direction: column;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brand">
+        <div>
+          <h1>Akshaansh Rai</h1>
+          <p class="sub">College Year — <span class="badge">1st Year</span></p>
+        </div>
+      </div>
+
+      <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </header>
+
+    <main class="grid">
+
+      <aside>
+        <div class="card">
+          <div class="photo-wrap">
+            <div class="photo">
+              <img src="image.png" alt="photo">
+            </div>
+
+            <div class="meta">
+              <p><strong>Aspiring Software Developer</strong></p>
+              <p class="sub">
+                Short bio: I am a 1st year college student learning web development,
+                data structures, and game dev. I enjoy anime, story-writing, and making small games.
+              </p>
+            </div>
+          </div>
+
+          <div class="skills">
+            <div class="skill">
+              <label>HTML &amp; CSS <span>70%</span></label>
+              <div class="bar"><i style="width:70%"></i></div>
+            </div>
+
+            <div class="skill">
+              <label>Python <span>80%</span></label>
+              <div class="bar"><i style="width:80%"></i></div>
+            </div>
+
+            <div class="skill">
+              <label>JavaScript <span>30%</span></label>
+              <div class="bar"><i style="width:30%"></i></div>
+            </div>
+
+            <div class="skill">
+              <label>Java <span>50%</span></label>
+              <div class="bar"><i style="width:50%"></i></div>
+            </div>
+
+            <div class="skill">
+              <label>Problem Solving <span>30%</span></label>
+              <div class="bar"><i style="width:30%"></i></div>
+            </div>
+          </div>
+
+          <div class="contact">
+            <p><strong>Contact</strong></p>
+            <p class="sub">
+              Email: <a href="mailto:Akshaanshrai@gmail.com" style="color:var(--accent1)">AkshaanshRai@gmail.com</a>
+            </p>
+            <p class="sub">
+              LinkedIn: <a href="https://www.linkedin.com/in/akshaansh-rai-2a064a296/" style="color:var(--accent1)">@AkshaanshRai</a>
+            </p>
+            <p class="sub">
+              GitHub: <a href="https://github.com/Akshaansh2007" style="color:var(--accent1)">@Akshaansh2007</a>
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <section>
+        <div class="card">
+
+          <div class="hero">
+            <div class="desc">
+              <h2>About Me</h2>
+              <p>
+                Hi — I'm a 1st year college student passionate about building useful software
+                and small games. I like to blend programming with creative writing and enjoy
+                rapid prototyping. For my portfolio assignment, I present projects, skills,
+                and contact information.
+              </p>
+
+              <div class="section">
+                <h3>Key Projects</h3>
+
+                <div class="project">
+                  <h4>Magic Survival — Mini Game (Prototype)</h4>
+                  <p class="sub">
+                    A 2D endless survival prototype made in Unity (WebGL target).
+                    Implemented object pooling, enemy spawner, and UI management.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">JavaScript</span>
+                  </div>
+                </div>
+
+                <div class="project">
+                  <h4>Personal Website</h4>
+                  <p class="sub">
+                    This portfolio (single-file) showing an image, skills, projects, and contact.
+                    Built to be simple and responsive.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="section">
+                <h3>Education & Activities</h3>
+                <p class="sub">
+                  Currently: 1st Year — BSc Computer Science (Honours) with SST Bangalore (Dual degree).
+                  Active in coding practice, game jams, and writing fanfiction.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Additional Skills</h3>
+            <div class="tags">
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Terminal (via WSL)</span>
+              <span class="tag">Teamwork</span>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3 id="contact">Contact</h3>
+            <p class="sub">Phone Number: <a href="" style="color:var(--accent1)">+91 8467940042</a></p>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
